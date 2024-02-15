@@ -8,7 +8,7 @@ import java.sql.SQLException;
 // A class to connect a database and other classes
 public class DatabaseConnector {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/Japan-Visitors";
+    private static final String URL = "jdbc:mysql://localhost:3306/JapanVisitors";
     private static final String USER = "root";
     private static final String PASS = "Teddy1019";
 
