@@ -31,7 +31,7 @@ public class ArrivalTableViewController implements Initializable {
     @FXML
     private TableView<ArrivalVisitors> arrivalTable;
     @FXML
-    private TableColumn<ArrivalVisitors, Integer> month;
+    private TableColumn<ArrivalVisitors, String> month;
     @FXML
     private TableColumn<ArrivalVisitors, Integer> previousYear;
     @FXML
@@ -64,7 +64,7 @@ public class ArrivalTableViewController implements Initializable {
             while (resultSet.next()) {
                 // add retrieved data from each column to listview
                 listview.add(new ArrivalVisitors(
-                        resultSet.getInt("month"),
+                        resultSet.getString("month"),
                         resultSet.getInt("year2019"),
                         resultSet.getInt("year2023"),
                         resultSet.getDouble("changeRate")

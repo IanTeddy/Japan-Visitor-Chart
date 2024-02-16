@@ -4,13 +4,13 @@ package org.example.japanvisitorchart;
 public class ArrivalVisitors {
 
     // instance variables
-    private int month;
+    private String month;
     private int previousYear;
     private int currentYear;
     private double changeRate;
 
     // constructor
-    public ArrivalVisitors(int month, int previousYear, int currentYear, double changeRate) {
+    public ArrivalVisitors(String month, int previousYear, int currentYear, double changeRate) {
         this.month = month;
         this.previousYear = previousYear;
         this.currentYear = currentYear;
@@ -18,11 +18,11 @@ public class ArrivalVisitors {
     }
 
     // getter and setter
-    public int getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(int month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 
