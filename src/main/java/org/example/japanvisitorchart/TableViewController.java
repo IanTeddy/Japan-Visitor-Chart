@@ -25,11 +25,11 @@ import java.util.ResourceBundle;
 /*
 *   FXML control class to control a table view of Arrival visitors with implementing Initialize
  */
-public class ArrivalTableViewController implements Initializable {
+public class TableViewController implements Initializable {
 
     // table elements
     @FXML
-    private TableView<ArrivalVisitors> arrivalTable;
+    private TableView<ArrivalVisitors> tableView;
     @FXML
     private TableColumn<ArrivalVisitors, String> month;
     @FXML
@@ -40,26 +40,38 @@ public class ArrivalTableViewController implements Initializable {
     private TableColumn<ArrivalVisitors, Double> changeRate;
 
 
+    // create database connector object and build connection
+    DatabaseConnector dbConnector = new DatabaseConnector();
+
+    // SQL Queries
+    String sqlArrivalTable = "SELECT * FROM ArrivalVisitors";
+    String sqlTravelersTable = "SELECT * FROM OverseasTravelers";
+
     // ObservableList that will store all data which are retrieved from database
     ObservableList<ArrivalVisitors> listview = FXCollections.observableArrayList();
 
-    // initialize a Arrival Visitors table view
+
+    // Implemented initialize method
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        if(GraphController.data == 0 || GraphController.data == 1 ){
+            displayTable(sqlArrivalTable);
+        } else if (GraphController.data == 2) {
+            displayTable(sqlTravelersTable);
+        }
+    }
+
+
+    public void displayTable(String sqlQuery){
         month.setCellValueFactory(new PropertyValueFactory<>("month"));
         previousYear.setCellValueFactory(new PropertyValueFactory<>("previousYear"));
         currentYear.setCellValueFactory(new PropertyValueFactory<>("currentYear"));
         changeRate.setCellValueFactory(new PropertyValueFactory<>("changeRate"));
 
-        try {
-            // create database connector object and build connection
-            DatabaseConnector dbConnector = new DatabaseConnector();
-            Connection connection = dbConnector.connect();
-
-            // create statement and execute SQL query of displaying table
-            String sql = "SELECT * FROM ArrivalVisitors";
+        try (Connection connection = dbConnector.connect();){
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            ResultSet resultSet = statement.executeQuery(sqlQuery);
 
             while (resultSet.next()) {
                 // add retrieved data from each column to listview
@@ -70,7 +82,7 @@ public class ArrivalTableViewController implements Initializable {
                         resultSet.getDouble("changeRate")
                 ));
                 // add listview to ArrivalTable
-                arrivalTable.setItems(listview);
+                tableView.setItems(listview);
             }
         } catch (SQLException e){
             e.printStackTrace();
@@ -79,8 +91,13 @@ public class ArrivalTableViewController implements Initializable {
 
 
     // A button to switch scene to Chart view
-    public void switchToArrivalGraph(ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ArrivalGraph.fxml")));
+    public void switchToGraph(ActionEvent event)throws IOException {
+        // to go back to the graph of the same data
+        if(GraphController.data == 1 || GraphController.data == 0){
+            GraphController.data = 1;
+        }
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GraphView.fxml")));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

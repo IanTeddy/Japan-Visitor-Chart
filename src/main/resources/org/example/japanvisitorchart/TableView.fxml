@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.japanvisitorchart.ArrivalTableViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.japanvisitorchart.TableViewController">
    <children>
       <Text layoutX="145.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2023 Visitor Arrivals in Japan (Compared to 2019)" />
       <Text layoutX="160.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Japan National Tourism Organization(JNTO)" />
-      <TableView fx:id="arrivalTable" layoutX="27.0" layoutY="86.0" prefHeight="316.0" prefWidth="547.0">
+      <TableView fx:id="tableView" layoutX="27.0" layoutY="86.0" prefHeight="316.0" prefWidth="547.0">
         <columns>
           <TableColumn fx:id="month" prefWidth="75.0" text="Month" />
           <TableColumn fx:id="previousYear" prefWidth="75.0" text="2019" />
@@ -21,6 +21,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="497.0" layoutY="421.0" mnemonicParsing="false" onAction="#switchToArrivalGraph" text="View Chart" />
+      <Button layoutX="497.0" layoutY="421.0" mnemonicParsing="false" onAction="#switchToGraph" text="View Chart" />
    </children>
 </AnchorPane>
