@@ -7,6 +7,7 @@ The goal of this project is to create a graphical user interface with JavaFx tha
 ## 🚀 Feature
 
 ## :thought_balloon: Process
+- At first, I started with four FXML files and four controller classes for each fxml. 
 
 ## 📚 Learning
 - Add app icon to window
