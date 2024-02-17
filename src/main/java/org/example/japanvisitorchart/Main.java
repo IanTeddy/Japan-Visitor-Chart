@@ -16,7 +16,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     public void start(Stage stage) throws IOException  {
-        Parent root = FXMLLoader.load(getClass().getResource("ArrivalGraph.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GraphView.fxml"));
         Scene scene = new Scene(root, 320, 240);
         // Load the icon image
         Image iconImage = new Image(getClass().getResource("/images/fuji-icon.png").toExternalForm());
