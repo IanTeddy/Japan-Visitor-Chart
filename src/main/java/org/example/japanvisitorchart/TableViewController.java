@@ -27,6 +27,9 @@ import java.util.ResourceBundle;
  */
 public class TableViewController implements Initializable {
 
+    @FXML
+    private Label titleLabel;
+
     // table elements
     @FXML
     private TableView<ArrivalVisitors> tableView;
@@ -51,24 +54,27 @@ public class TableViewController implements Initializable {
     ObservableList<ArrivalVisitors> listview = FXCollections.observableArrayList();
 
 
-    // Implemented initialize method
+    // Implemented initialize method to display a table and set a title depends on which data is chosen
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         if(GraphController.data == 0 || GraphController.data == 1 ){
             displayTable(sqlArrivalTable);
+            titleLabel.setText(Main.label1);
         } else if (GraphController.data == 2) {
             displayTable(sqlTravelersTable);
+            titleLabel.setText(Main.label2);
         }
     }
 
-
+    // a function that accept one SQL query and display a table view of corresponding data
     public void displayTable(String sqlQuery){
         month.setCellValueFactory(new PropertyValueFactory<>("month"));
         previousYear.setCellValueFactory(new PropertyValueFactory<>("previousYear"));
         currentYear.setCellValueFactory(new PropertyValueFactory<>("currentYear"));
         changeRate.setCellValueFactory(new PropertyValueFactory<>("changeRate"));
 
+        // connect to database
         try (Connection connection = dbConnector.connect();){
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sqlQuery);
@@ -90,7 +96,7 @@ public class TableViewController implements Initializable {
     }
 
 
-    // A button to switch scene to Chart view
+    // A button to switch scene to Graph view
     public void switchToGraph(ActionEvent event)throws IOException {
         // to go back to the graph of the same data
         if(GraphController.data == 1 || GraphController.data == 0){

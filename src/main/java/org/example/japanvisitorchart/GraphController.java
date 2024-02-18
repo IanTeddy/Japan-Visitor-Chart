@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
@@ -24,6 +25,10 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class GraphController implements Initializable {
+
+    // labels for each data
+    @FXML
+    private Label titleLabel;
 
     @FXML
     private BarChart<String, Integer> barChart;
@@ -47,7 +52,7 @@ public class GraphController implements Initializable {
     ArrayList<Integer> dataOf2023 = new ArrayList<>();
 
     // create a static variable to distinguish between the data of Visitors Arrival & Overseas Travelers
-    public static int data;
+    public static int data = 0;
 
     // Implemented initialize method
     @Override
@@ -60,11 +65,11 @@ public class GraphController implements Initializable {
         if(data == 1 || data == 0){
             displayGraph(sqlArrival);
             arrivalBtn.setSelected(true);
+            titleLabel.setText(Main.label1);
         } else if(data == 2){
             displayGraph(sqlTravelers);
             travelerBtn.setSelected(true);
-        } else {
-            displayGraph(sqlArrival);
+            titleLabel.setText(Main.label2);
         }
     }
 
@@ -117,12 +122,14 @@ public class GraphController implements Initializable {
     }
 
 
-    // a radio button that allows to change between visitor arrivals in Japan & Japanese overseas travelers
+    // a radio button that allows to change between two data
     public void changeGraph(ActionEvent event){
         if(arrivalBtn.isSelected()){
+            titleLabel.setText(Main.label1);
             displayGraph(sqlArrival);
             data = 1;              // set Visitor Arrivals data as 1
         } else if (travelerBtn.isSelected()) {
+            titleLabel.setText(Main.label2);
             displayGraph(sqlTravelers);
             data = 2;              // set Overseas Travelers data as 2
         }

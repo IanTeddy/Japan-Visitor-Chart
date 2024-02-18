@@ -15,6 +15,10 @@ import java.io.IOException;
 * */
 public class Main extends Application {
 
+    // static variables title labels for each scene
+    public static String label1 = "Visitor Arrivals in Japan (2019 vs 2023)";
+    public static String label2 = "Japanese Overseas Travelers (2019 vs 2023)";
+
     public void start(Stage stage) throws IOException  {
         Parent root = FXMLLoader.load(getClass().getResource("GraphView.fxml"));
         Scene scene = new Scene(root, 320, 240);
