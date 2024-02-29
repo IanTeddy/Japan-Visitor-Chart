@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import java.io.File;
+
 import java.io.IOException;
 
 
@@ -21,7 +21,12 @@ public class Main extends Application {
 
     public void start(Stage stage) throws IOException  {
         Parent root = FXMLLoader.load(getClass().getResource("GraphView.fxml"));
-        Scene scene = new Scene(root, 320, 240);
+        Scene scene = new Scene(root, 800, 600);
+
+        // add stylesheet to scene
+        String css = this.getClass().getResource("style.css").toExternalForm();
+        scene.getStylesheets().add(css);
+
         // Load the icon image
         Image iconImage = new Image(getClass().getResource("/images/fuji-icon.png").toExternalForm());
         // Set the stage icon

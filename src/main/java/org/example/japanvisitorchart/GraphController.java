@@ -12,6 +12,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,6 +27,7 @@ import java.util.ResourceBundle;
 
 public class GraphController implements Initializable {
 
+    public AnchorPane anchorPane;
     // labels for each data
     @FXML
     private Label titleLabel;

@@ -1,0 +1,83 @@
+
+/* set background image*/
+#anchorPane {
+    -fx-background-image: url("mt-fuji-with-cherry-blossom.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}
+
+#titleLabel {
+    -fx-alignment: center;
+}
+
+#barChart {
+    -fx-background-color: #330E23;
+    -fx-text-fill: #fff;
+}
+
+/* change the color of bar chart*/
+.default-color0.chart-bar {
+   -fx-bar-fill :#507494 ;
+}
+
+.default-color1.chart-bar {
+    -fx-bar-fill : #BA4347;
+}
+
+.default-color2.chart-bar {
+    -fx-bar-fill :#507494 ;
+}
+
+.default-color3.chart-bar {
+    -fx-bar-fill : #BA4347;
+}
+
+/* Button styling */
+.changeSceneButton {
+    -fx-background-color: #330E23;
+    -fx-text-fill: #fff;
+}
+
+/* change button's color on hover */
+.changeSceneButton:hover  {
+    -fx-background-color: #D2332F;
+    -fx-text-fill: #fff;
+}
+
+
+/* Table view styling */
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: #330E23;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background .label{
+    -fx-text-fill: #E5DDD0 ;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 10 2 10px;
+}
+.table-row-cell: hover {
+    -fx-text-background-color: #C02E74;
+}
+
+.table-row-cell: odd{
+    -fx-background-color: #DFD5DC;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell: even{
+    -fx-background-color: #DEC5C7;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+

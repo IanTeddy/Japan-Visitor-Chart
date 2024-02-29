@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -10,23 +11,42 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.japanvisitorchart.GraphController">
+<AnchorPane fx:id="anchorPane" prefHeight="650.0" prefWidth="800.0" style="-fx-color: #330E23;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.japanvisitorchart.GraphController">
    <children>
-      <BarChart fx:id="barChart" layoutX="29.0" layoutY="77.0" prefHeight="337.0" prefWidth="543.0">
+      <BarChart fx:id="barChart" barGap="3.0" layoutX="120.0" layoutY="143.0" prefHeight="381.0" prefWidth="596.0" stylesheets="@style.css">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis prefHeight="33.0" prefWidth="539.0" side="BOTTOM" tickLabelFill="WHITE" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis side="LEFT" tickLabelFill="WHITE">
+               <tickLabelFont>
+                  <Font name="SansSerif Regular" size="10.0" />
+               </tickLabelFont></NumberAxis>
         </yAxis>
+         <styleClass>
+            <String fx:value="default-color0" />
+            <String fx:value="default-color1" />
+         </styleClass>
       </BarChart>
-      <Button fx:id="viewTableButton" layoutX="487.0" layoutY="426.0" mnemonicParsing="false" onAction="#switchToTableview" text="View Table" />
-      <Text layoutX="180.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Japan National Tourism Organization(JNTO)" />
-      <RadioButton fx:id="arrivalBtn" layoutX="63.0" layoutY="430.0" mnemonicParsing="false" onAction="#changeGraph" text="Visitor Arrivals" />
-      <RadioButton fx:id="travelerBtn" layoutX="213.0" layoutY="430.0" mnemonicParsing="false" onAction="#changeGraph" text="Overseas Travelers" />
-      <Label fx:id="titleLabel" layoutX="57.0" layoutY="27.0" prefHeight="27.0" prefWidth="515.0" text="Label" textAlignment="JUSTIFY">
+      <Button fx:id="viewTableButton" layoutX="635.0" layoutY="547.0" mnemonicParsing="false" onAction="#switchToTableview" styleClass="changeSceneButton" stylesheets="@style.css" text="View Table" textFill="WHITE">
          <font>
-            <Font size="21.0" />
+            <Font name="KoHo Regular" size="14.0" />
+         </font></Button>
+      <Text layoutX="303.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Japan National Tourism Organization(JNTO)" textAlignment="CENTER">
+         <font>
+            <Font name="KoHo Medium" size="13.0" />
+         </font></Text>
+      <RadioButton fx:id="arrivalBtn" layoutX="141.0" layoutY="552.0" mnemonicParsing="false" onAction="#changeGraph" text="Visitor Arrivals">
+         <font>
+            <Font name="KoHo Bold" size="14.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="travelerBtn" layoutX="290.0" layoutY="552.0" mnemonicParsing="false" onAction="#changeGraph" text="Overseas Travelers">
+         <font>
+            <Font name="KoHo Bold" size="14.0" />
+         </font></RadioButton>
+      <Label fx:id="titleLabel" layoutX="120.0" layoutY="55.0" prefHeight="43.0" prefWidth="596.0" style="-fx-alignment: center;" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="KoHo Bold" size="30.0" />
          </font>
       </Label>
    </children>

@@ -8,24 +8,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.japanvisitorchart.TableViewController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: #E5DDD0;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.japanvisitorchart.TableViewController">
    <children>
-      <Text layoutX="175.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Japan National Tourism Organization(JNTO)" wrappingWidth="250.71240234375" />
-      <TableView fx:id="tableView" layoutX="27.0" layoutY="86.0" prefHeight="316.0" prefWidth="547.0">
+      <Text layoutX="142.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Japan National Tourism Organization(JNTO)" textAlignment="CENTER" wrappingWidth="517.0">
+         <font>
+            <Font name="KoHo Light" size="13.0" />
+         </font></Text>
+      <TableView fx:id="tableView" layoutX="107.0" layoutY="167.0" prefHeight="330.0" prefWidth="582.0" stylesheets="@style.css">
         <columns>
-          <TableColumn fx:id="month" prefWidth="75.0" text="Month" />
-          <TableColumn fx:id="previousYear" prefWidth="75.0" text="2019" />
-            <TableColumn fx:id="currentYear" prefWidth="75.0" text="2023" />
-            <TableColumn fx:id="changeRate" prefWidth="75.0" text="Change(%)" />
+          <TableColumn fx:id="month" editable="false" prefWidth="108.0" sortable="false" text="Month" />
+          <TableColumn fx:id="previousYear" prefWidth="179.5" text="2019" />
+            <TableColumn fx:id="currentYear" prefWidth="176.5" text="2023" />
+            <TableColumn fx:id="changeRate" prefWidth="103.5" text="Change(%)" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="497.0" layoutY="421.0" mnemonicParsing="false" onAction="#switchToGraph" text="View Chart" />
-      <Label fx:id="titleLabel" layoutX="22.0" layoutY="25.0" prefHeight="23.0" prefWidth="547.0" text="title" textAlignment="JUSTIFY">
+      <Button layoutX="594.0" layoutY="542.0" mnemonicParsing="false" onAction="#switchToGraph" styleClass="changeSceneButton" stylesheets="@style.css" text="View Chart" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="KoHo Regular" size="15.0" />
+         </font></Button>
+      <Label fx:id="titleLabel" layoutX="80.0" layoutY="63.0" prefHeight="43.0" prefWidth="657.0" style="-fx-alignment: center;" stylesheets="@style.css" text="Title" textAlignment="CENTER">
+         <font>
+            <Font name="KoHo Bold" size="30.0" />
          </font>
       </Label>
    </children>

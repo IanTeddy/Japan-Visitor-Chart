@@ -106,6 +106,7 @@ public class TableViewController implements Initializable {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GraphView.fxml")));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
