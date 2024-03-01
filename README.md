@@ -1,4 +1,4 @@
-# 📊 JavaFx with bar chart
+# 📊 JavaFx with Bar charts
 
 The goal of this project is to create a graphical user interface with JavaFx that will allow users to read information from a MySQL database and display it as chart data. I chose the data of "Visitor Arrivals & Japanese Overseas Travelers in 2023" from <https://www.jnto.go.jp/statistics/data/20231220_monthly.pdf>
 
@@ -13,9 +13,9 @@ The goal of this project is to create a graphical user interface with JavaFx tha
 Initially, I began with four FXML files and four controller classes, each corresponding to an FXML file. However, after creating separate FXML files for TableView and GraphView, I realized redundancy in my approach. Since both datasets I'm using share the same number of columns and rows, implementing a function to switch displayed data allowed me to streamline the process. As a result, I only required one controller for TableView and one for GraphView. This realization helped me avoid writing duplicate code, ultimately saving time.
 
 ## 📚 Learning & Improvement
-- Add app icon to window
-
-
+- Learned how to add  an icon to the window and kicked things up a notch with advanced styling using an external CSS file, all on top of SceneBuilder magic.
+- Made the radio buttons as a toggle group, so now only one can be picked at a time.
+- Experimented with a local database setup this time. However, I aim to expand my skills by handling a remotely accessible database in the future. Enabling users to connect to and work with the MySQL database from remote locations over a network will enhance accessibility and usability.
 
 
 ## 🎥 Video
